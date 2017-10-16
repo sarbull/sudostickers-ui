@@ -30,7 +30,7 @@ class App extends Component {
         <Grid item xs={12}>
           <Grid container justify="center">
             <Grid item>
-              <h1>sudostickers-ui</h1>
+              <h1>sudostickers, soon</h1>
             </Grid>
           </Grid>
           <Grid container justify="center">
