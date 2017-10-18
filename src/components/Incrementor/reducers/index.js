@@ -1,7 +1,7 @@
 import {
   INCREMENT,
   DECREMENT
-} from '../actions/example';
+} from '../actions';
 
 const mapper = {
   [INCREMENT]: ( state = { error: { } }, { value }) => {
