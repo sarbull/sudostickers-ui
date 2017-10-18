@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
+import About from '../About';
 import Incrementor from '../Incrementor';
-import Grid from 'material-ui/Grid';
+import Home from '../Home';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 import 'typeface-roboto';
 import './App.css';
@@ -8,18 +15,21 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <Grid container>
-        <Grid item xs={12}>
-          <Grid container justify="center">
-            <Grid item>
-              <h1>sudostickers, soon.</h1>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={12}>
-          <Incrementor/>
-        </Grid>
-      </Grid>
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/incrementor">Incrementor</Link></li>
+          </ul>
+
+          <hr/>
+
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route path="/incrementor" component={Incrementor}/>
+        </div>
+      </Router>
     );
   }
 }
