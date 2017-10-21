@@ -12,45 +12,51 @@ const deliveries = [
 ];
 
 class CustomerContainer extends Component {
-  state = {
-    firstName: '',
-    lastName: '',
-    address: '',
-    phone: '',
-    delivery: ''
-  };
+  constructor(props) {
+    super(props);
 
-  handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(key, value) {
+    this.props.updateField({
+      [key]: value
     });
   };
 
   render() {
+    const { order } = this.props;
+
     return (
       <div>
         <form noValidate autoComplete="off">
           <TextField
             id="name"
             label="First Name"
-            value={ this.state.firstName }
-            onChange={ this.handleChange('firstName') }
+            value={ order.firstName }
+            onChange={ (e) => {
+              this.handleChange('firstName', e.target.value);
+            } }
             fullWidth
             margin="normal"
           />
           <TextField
             id="name"
             label="Last Name"
-            value={ this.state.lastName }
-            onChange={ this.handleChange('lastName') }
+            value={ order.lastName }
+            onChange={ (e) => {
+              this.handleChange('lastName', e.target.value);
+            } }
             fullWidth
             margin="normal"
           />
           <TextField
             id="name"
             label="Phone Number"
-            value={ this.state.phone }
-            onChange={ this.handleChange('phone') }
+            value={ order.phone }
+            onChange={ (e) => {
+              this.handleChange('phone', e.target.value);
+            } }
             fullWidth
             margin="normal"
           />
@@ -59,16 +65,17 @@ class CustomerContainer extends Component {
             label="Address"
             multiline
             rowsMax="4"
-            value={this.state.address}
-            onChange={this.handleChange('address')}
+            value={ order.address }
+            onChange={ (e) => {
+              this.handleChange('address', e.target.value);
+            } }
             fullWidth
             margin="normal"
           />
           <TextField id="select-currency-native"
                      select
                      label="Delivery"
-                     value={this.state.delviery}
-                     onChange={this.handleChange('delivery')}
+                     value={ order.delivery }
                      SelectProps={{
                        native: true
                      }}
@@ -86,8 +93,10 @@ class CustomerContainer extends Component {
   }
 }
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps({ order }) {
+  return {
+    order
+  };
 }
 
 function mapDispatchToProps(dispatch) {
