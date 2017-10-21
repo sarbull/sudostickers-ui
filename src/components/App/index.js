@@ -39,7 +39,7 @@ class App extends Component {
           <Grid container>
             <AppBar position="static" style={{ marginBottom: 40, backgroundColor: '#8BC34A' }}>
               <Grid container justify="center">
-                <Grid item md={10}>
+                <Grid item md={10} xs={12}>
                   <Toolbar>
                     <Typography type="title" color="inherit">
                       Sudo Stickers
@@ -55,11 +55,11 @@ class App extends Component {
 
                     <Link to={"/cart"}>
                       <Button>
-                        Shopping Cart
+                        <span>Shopping Cart
 
                         { (this.cartQty() > 0) && (<span style={{color: '#E53935'}}>
                           &nbsp;({ length })
-                        </span>) }
+                        </span>) } </span>
                       </Button>
                     </Link>
                   </Toolbar>
