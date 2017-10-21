@@ -25,7 +25,7 @@ class App extends Component {
       <Router>
         <div>
           <Grid container>
-            <AppBar position="static" style={{ marginBottom: 20, backgroundColor: '#8BC34A' }}>
+            <AppBar position="static" style={{ marginBottom: 40, backgroundColor: '#8BC34A' }}>
               <Grid container justify="center">
                 <Grid item md={10}>
                   <Toolbar>

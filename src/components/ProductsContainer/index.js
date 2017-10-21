@@ -11,7 +11,7 @@ class ProductsContainer extends Component {
     const { products } = this.props;
 
     return products.map((product) => (
-      <Grid item md={4} xs={12} key={product.id}>
+      <Grid item md={3} xs={12} key={product.id}>
         <Paper>
           <Product product={ product }/>
         </Paper>
