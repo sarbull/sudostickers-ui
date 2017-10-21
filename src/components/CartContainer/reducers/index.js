@@ -25,6 +25,12 @@ const mapper = {
   [ADD_TO_CART]: (state, { product }) => {
     const checked = checkItems(state.items);
 
+    if (state.items.length > 20) {
+      return {
+        ...state
+      };
+    }
+
     return {
       ...state,
       items: [
