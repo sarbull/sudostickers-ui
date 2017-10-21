@@ -6,7 +6,7 @@ import * as Actions from './actions';
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 
-class Incrementor extends Component {
+class Increment extends Component {
   constructor(props) {
     super(props);
 
@@ -54,9 +54,9 @@ class Incrementor extends Component {
   }
 }
 
-function mapStateToProps({incrementor}, action) {
+function mapStateToProps({increment}, action) {
   return {
-    value: incrementor.value
+    value: increment.value
   };
 }
 
@@ -64,4 +64,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Incrementor);
+export default connect(mapStateToProps, mapDispatchToProps)(Increment);

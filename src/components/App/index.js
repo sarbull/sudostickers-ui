@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import About from '../About';
-import Incrementor from '../Incrementor';
+import Increment from '../Increment';
 import Home from '../Home';
 
 import {
@@ -20,14 +20,14 @@ class App extends Component {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
-            <li><Link to="/incrementor">Incrementor</Link></li>
+            <li><Link to="/increment">Increment</Link></li>
           </ul>
 
           <hr/>
 
           <Route exact path="/" component={Home}/>
           <Route path="/about" component={About}/>
-          <Route path="/incrementor" component={Incrementor}/>
+          <Route path="/increment" component={Increment}/>
         </div>
       </Router>
     );
