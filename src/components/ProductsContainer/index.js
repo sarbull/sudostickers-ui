@@ -11,7 +11,7 @@ class ProductsContainer extends Component {
     const { products } = this.props;
 
     return products.map((product) => (
-      <Grid item xs={12} md={6} key={product.id}>
+      <Grid item xs={12} md={4} key={product.id}>
         <Paper>
           <Product product={ product }/>
         </Paper>
@@ -22,7 +22,6 @@ class ProductsContainer extends Component {
   render() {
     return (
       <div>
-        <h2>Products</h2>
         <Grid container>
           <Grid item xs={12}>
             <Grid container justify="center">
