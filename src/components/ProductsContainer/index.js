@@ -3,13 +3,19 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from './actions';
 import Product from '../Product';
+import Paper from 'material-ui/Paper';
+import Grid from 'material-ui/Grid';
 
 class ProductsContainer extends Component {
   renderProducts() {
     const { products } = this.props;
 
     return products.map((product) => (
-      <Product key={product.id} product={ product }/>
+      <Grid item md={3}>
+        <Paper>
+          <Product key={product.id} product={ product }/>
+        </Paper>
+      </Grid>
     ));
   }
 
@@ -18,7 +24,9 @@ class ProductsContainer extends Component {
       <div>
         <h2>Products</h2>
         <div>
-          { this.renderProducts() }
+          <Grid container spacing={24}>
+            { this.renderProducts() }
+          </Grid>
         </div>
       </div>
     );

@@ -4,10 +4,10 @@ const initialState = {
   list: [
     {
       id: 1,
-      name: 'Angular',
-      defaultImage: 'image-url',
+      name: 'Ludicon',
+      defaultImage: '/images/banner.jpg',
       description: 'Lorem ipsum dolor Angular',
-      price: 5,
+      price: 'FREE',
       images: [
         {
           url: 'image-1'
