@@ -10,6 +10,11 @@ export default class About extends Component {
         <p>We decided to combine these two passions.</p>
 
         <p>Sincerely, <br/> The Sudo Sticker Team</p>
+
+        <h2>Contact</h2>
+
+        <p>sudostickers [at] gmail.com</p>
+        <p><a href="http://www.facebook.com/sudostickers" target="_blank">http://www.facebook.com/sudostickers</a></p>
       </div>
     );
   }
