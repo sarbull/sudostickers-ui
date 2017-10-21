@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from './actions';
-import * as CartActions from '../Cart/actions';
+import * as CartActions from '../CartContainer/actions';
 import Product from '../Product';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
