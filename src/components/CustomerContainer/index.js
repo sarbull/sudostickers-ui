@@ -94,8 +94,6 @@ class CustomerContainer extends Component {
 }
 
 function mapStateToProps({ order }) {
-  console.log(order);
-
   return {
     order
   };
