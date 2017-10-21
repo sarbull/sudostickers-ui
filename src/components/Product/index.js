@@ -38,6 +38,7 @@ class Product extends Component {
           <CardActions>
             <Button dense color="primary">
               { product.price }
+
               { this.showCurrency() ? ' RON' : '' }
             </Button>
             <Button dense color="primary">
