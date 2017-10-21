@@ -3,6 +3,7 @@ import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
+import { withRouter } from 'react-router-dom';
 
 const styles = {
   media: {
@@ -21,6 +22,10 @@ class Product extends Component {
         backgroundSize: '45%'
       }
     }
+  }
+
+  nextPath(path) {
+    this.props.history.push(path);
   }
 
   render() {
@@ -53,6 +58,13 @@ class Product extends Component {
               { product.price }
               { this.showCurrency() ? ' RON' : '' }
             </Button>
+            {/*<Button dense*/}
+                    {/*color="primary"*/}
+                    {/*onClick={() => {*/}
+                      {/*this.nextPath('/about');*/}
+                    {/*}}>*/}
+              {/*Details*/}
+            {/*</Button>*/}
             <Button dense
                     color="primary"
                     onClick={ () => {
@@ -69,4 +81,4 @@ class Product extends Component {
   }
 }
 
-export default withStyles(styles)(Product);
+export default withRouter(withStyles(styles)(Product));
