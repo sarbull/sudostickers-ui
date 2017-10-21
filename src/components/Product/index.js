@@ -11,6 +11,11 @@ const styles = {
 };
 
 class Product extends Component {
+
+  showCurrency() {
+    return !(typeof this.props.product.price === 'string');
+  }
+
   render() {
     const { product, classes } = this.props;
 
@@ -27,12 +32,13 @@ class Product extends Component {
               { product.name }
             </Typography>
             <Typography component="p">
-              image={ product.description }
+              { product.description }
             </Typography>
           </CardContent>
           <CardActions>
             <Button dense color="primary">
               { product.price }
+              { this.showCurrency() ? ' RON' : '' }
             </Button>
             <Button dense color="primary">
               Add to cart
