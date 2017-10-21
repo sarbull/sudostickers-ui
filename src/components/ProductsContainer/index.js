@@ -13,22 +13,20 @@ class ProductsContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleRequestClose = this.handleRequestClose.bind(this);
+    this.state = {
+      open: false,
+      direction: null,
+    };
+
+    this.showSnackbar = this.showSnackbar.bind(this);
+    this.hideSnackbar = this.hideSnackbar.bind(this);
   }
 
-  state = {
-    open: false,
-    direction: null,
-  };
-
-  handleClick(direction) {
+  showSnackbar(direction) {
     this.setState({ open: true, direction });
-
-    console.log('called');
   }
 
-  handleRequestClose() {
+  hideSnackbar() {
     this.setState({ open: false });
   }
 
@@ -43,13 +41,15 @@ class ProductsContainer extends Component {
         <Paper>
           <Product product={ product }
                    addToCart={ addToCart }
-                   showSnackbar={ this.handleClick }/>
+                   showSnackbar={ this.showSnackbar }/>
         </Paper>
       </Grid>
     ));
   }
 
   render() {
+    const { open, direction } = this.state;
+
     return (
       <div>
         <Grid container>
@@ -57,9 +57,9 @@ class ProductsContainer extends Component {
         </Grid>
 
         <Snackbar
-          open={this.state.open}
-          onRequestClose={this.handleRequestClose}
-          transition={<Slide direction={this.state.direction} />}
+          open={open}
+          onRequestClose={this.hideSnackbar}
+          transition={<Slide direction={direction} />}
           SnackbarContentProps={{
             'aria-describedby': 'message-id',
           }}
