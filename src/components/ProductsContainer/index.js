@@ -11,7 +11,7 @@ class ProductsContainer extends Component {
     const { products } = this.props;
 
     return products.map((product) => (
-      <Grid item md={3}>
+      <Grid item md={6}>
         <Paper>
           <Product key={product.id} product={ product }/>
         </Paper>
@@ -23,11 +23,11 @@ class ProductsContainer extends Component {
     return (
       <div>
         <h2>Products</h2>
-        <div>
-          <Grid container spacing={24}>
+        <Grid container md={12} justify="center">
+          <Grid container md={8} justify="center">
             { this.renderProducts() }
           </Grid>
-        </div>
+        </Grid>
       </div>
     );
   }
