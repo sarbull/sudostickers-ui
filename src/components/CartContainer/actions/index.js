@@ -1,4 +1,5 @@
 import * as guId from 'guid';
+import axios from 'axios';
 
 export const ADD_TO_CART='ADD_TO_CART';
 export function addToCart(p) {
@@ -31,9 +32,20 @@ export function emptyCart() {
 }
 
 export const SAVE_ORDER='SAVE_ORDER';
-export function saveOrder() {
+export const SAVE_ORDER_REQUEST='SAVE_ORDER_REQUEST';
+export const SAVE_ORDER_SUCCESS='SAVE_ORDER_SUCCESS';
+export const SAVE_ORDER_FAILURE='SAVE_ORDER_FAILURE';
+export function saveOrder(data) {
   return {
-    type: SAVE_ORDER
+    type: SAVE_ORDER,
+    promise: axios({
+      url: 'https://backend.api.sudostickers.com/api/orders',
+      method: 'POST',
+      data,
+      transformResponse: (data) => {
+        return JSON.parse(data);
+      }
+    })
   };
 }
 

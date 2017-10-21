@@ -14,7 +14,14 @@ class CartContainer extends Component {
   }
 
   submitOrder() {
-    this.props.saveOrder();
+    const { order, items } = this.props;
+
+    const data = {
+      order,
+      items
+    };
+
+    this.props.saveOrder(data);
   }
 
   render() {
@@ -50,9 +57,10 @@ class CartContainer extends Component {
   }
 }
 
-function mapStateToProps({ cart }) {
+function mapStateToProps({ cart, order }) {
   return {
-    items: cart.items
+    items: cart.items,
+    order
   };
 }
 

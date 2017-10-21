@@ -2,9 +2,10 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   EMPTY_CART,
-  SAVE_ORDER
+  SAVE_ORDER_REQUEST,
+  SAVE_ORDER_SUCCESS,
+  SAVE_ORDER_FAILURE
 } from '../actions';
-
 
 function checkItems(items) {
   if(items.length === 0) {
@@ -52,8 +53,15 @@ const mapper = {
       items: []
     };
   },
-  [SAVE_ORDER]: (state) => {
+  [SAVE_ORDER_REQUEST]: (state) => {
+    console.log('requesting...');
 
+    return {
+      ...state
+    };
+  },
+  [SAVE_ORDER_SUCCESS]: (state) => {
+    console.log('success');
 
     return {
       ...state,
@@ -65,6 +73,13 @@ const mapper = {
         delivery: 'Fan Courier'
       },
       items: []
+    };
+  },
+  [SAVE_ORDER_FAILURE]: (state) => {
+    console.log('failure');
+
+    return {
+      ...state
     };
   },
 };
