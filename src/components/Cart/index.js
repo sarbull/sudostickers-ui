@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Table, {
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  TableFooter
+} from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
-import RemoveIcon from 'material-ui-icons/Remove';
-import Button from 'material-ui/Button';
+import IconButton from 'material-ui/IconButton';
+import DeleteIcon from 'material-ui-icons/Delete';
 
 export default class Cart extends Component {
-
-
   renderRows() {
     const {
       items,
       removeFromCart
     } = this.props;
-
-    console.log('items', items);
 
     return items.map(i => {
       return (
@@ -23,18 +25,54 @@ export default class Cart extends Component {
           <TableCell>{i.price}</TableCell>
           <TableCell>1</TableCell>
           <TableCell>
-            <Button fab
-                    color="primary"
-                    aria-label="remove"
-                    onClick={() => {
-                      removeFromCart(i);
-                    }}>
-              <RemoveIcon />
-            </Button>
+            <IconButton aria-label="Delete"
+                        onClick={() => {
+                          removeFromCart(i);
+                        }}>
+              <DeleteIcon />
+            </IconButton>
           </TableCell>
         </TableRow>
       );
     });
+  }
+
+  sumPrices() {
+    const { items } = this.props;
+
+    return items.map((o) => {
+      if(typeof o.price === 'number') {
+        return o.price;
+      } else {
+        return 0;
+      }
+    }).reduce((a, b) => {
+      return a + b;
+    }, 0);
+  }
+
+  renderTableFooter() {
+    const {
+      items,
+      emptyCart
+    } = this.props;
+
+    return (<TableFooter>
+      <TableRow>
+        <TableCell>
+          <strong>Total</strong>
+        </TableCell>
+        <TableCell></TableCell>
+        <TableCell>{ this.sumPrices() } RON</TableCell>
+        <TableCell>{ items.length }</TableCell>
+        <TableCell>
+          <IconButton aria-label="Delete"
+                      onClick={ emptyCart }>
+            <DeleteIcon />
+          </IconButton>
+        </TableCell>
+      </TableRow>
+    </TableFooter>);
   }
 
   renderTable() {
@@ -52,6 +90,7 @@ export default class Cart extends Component {
         <TableBody>
           { this.renderRows() }
         </TableBody>
+        { this.renderTableFooter() }
       </Table>
     </Paper>);
   }

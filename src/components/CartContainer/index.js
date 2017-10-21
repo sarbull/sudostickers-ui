@@ -8,14 +8,16 @@ class CartContainer extends Component {
   render() {
     const {
       items,
-      removeFromCart
+      removeFromCart,
+      emptyCart
     } = this.props;
 
     return (
       <div>
         <h1>Cart</h1>
         <Cart items={items}
-              removeFromCart={ removeFromCart }/>
+              removeFromCart={ removeFromCart }
+              emptyCart={ emptyCart }/>
       </div>
     );
   }

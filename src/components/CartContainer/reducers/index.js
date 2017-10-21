@@ -1,6 +1,7 @@
 import {
   ADD_TO_CART,
-  REMOVE_FROM_CART
+  REMOVE_FROM_CART,
+  EMPTY_CART
 } from '../actions';
 
 const mapper = {
@@ -21,6 +22,12 @@ const mapper = {
     return {
       ...state,
       items
+    };
+  },
+  [EMPTY_CART]: (state) => {
+    return {
+      ...state,
+      items: []
     };
   },
 };
