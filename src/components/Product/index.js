@@ -15,6 +15,14 @@ class Product extends Component {
     return !(typeof this.props.product.price === 'string');
   }
 
+  hardcodedBg(product) {
+    if (product.id !== 1) {
+      return {
+        backgroundSize: '45%'
+      }
+    }
+  }
+
   render() {
     const {
       product,
@@ -29,6 +37,7 @@ class Product extends Component {
             className={classes.media}
             image={ product.defaultImage }
             title="Contemplative Reptile"
+            style={ this.hardcodedBg(product) }
           />
           <CardContent>
             <Typography type="headline" component="h2">

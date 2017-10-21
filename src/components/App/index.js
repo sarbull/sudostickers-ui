@@ -8,6 +8,9 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as Actions from './actions';
 
 import {
   BrowserRouter as Router,
@@ -19,8 +22,17 @@ import 'typeface-roboto';
 import './App.css';
 
 class App extends Component {
+  cartQty() {
+    const { cart } = this.props;
+
+    return cart.length;
+  }
 
   render() {
+    const { cart } = this.props;
+
+    const length = cart.length;
+
     return (
       <Router>
         <div>
@@ -42,7 +54,13 @@ class App extends Component {
                     </Link>
 
                     <Link to={"/cart"}>
-                      <Button>Shopping Cart</Button>
+                      <Button>
+                        Shopping Cart
+
+                        { (this.cartQty() > 0) && (<span style={{color: '#E53935'}}>
+                          &nbsp;({ length })
+                        </span>) }
+                      </Button>
                     </Link>
                   </Toolbar>
                 </Grid>
@@ -70,4 +88,14 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps({cart}) {
+  return {
+    cart: cart.items
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
