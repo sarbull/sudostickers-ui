@@ -42,7 +42,7 @@ const initialState = {
       id: 4,
       name: 'WebStorm',
       defaultImage: '/images/ws.png',
-      description: 'Best Web IDE named \'WebStrorm\' logo.',
+      description: 'Best Web IDE named \'WebStorm\' logo.',
       price: 5,
       images: [
         {
