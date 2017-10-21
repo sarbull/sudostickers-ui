@@ -39,7 +39,7 @@ export function saveOrder(data) {
   return {
     type: SAVE_ORDER,
     promise: axios({
-      url: 'https://backend.api.sudostickers.com/api/orders',
+      url: 'http://backend.api.sudostickers.com/api/orders',
       method: 'POST',
       data,
       transformResponse: (data) => {
