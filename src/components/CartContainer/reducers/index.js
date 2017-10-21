@@ -1,7 +1,8 @@
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
-  EMPTY_CART
+  EMPTY_CART,
+  SAVE_ORDER
 } from '../actions';
 
 
@@ -48,6 +49,21 @@ const mapper = {
   [EMPTY_CART]: (state) => {
     return {
       ...state,
+      items: []
+    };
+  },
+  [SAVE_ORDER]: (state) => {
+
+
+    return {
+      ...state,
+      order: {
+        firstName: '',
+        lastName: '',
+        phone: '',
+        address: '',
+        delivery: 'Fan Courier'
+      },
       items: []
     };
   },

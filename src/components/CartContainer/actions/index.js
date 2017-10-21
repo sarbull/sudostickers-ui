@@ -29,3 +29,11 @@ export function emptyCart() {
     type: EMPTY_CART
   };
 }
+
+export const SAVE_ORDER='SAVE_ORDER';
+export function saveOrder() {
+  return {
+    type: SAVE_ORDER
+  };
+}
+

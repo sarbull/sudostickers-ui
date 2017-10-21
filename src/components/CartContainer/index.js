@@ -7,8 +7,14 @@ import CustomerContainer from "../CustomerContainer";
 import Button from 'material-ui/Button';
 
 class CartContainer extends Component {
-  submitOrder() {
+  constructor(props) {
+    super(props);
 
+    this.submitOrder = this.submitOrder.bind(this);
+  }
+
+  submitOrder() {
+    this.props.saveOrder();
   }
 
   render() {
@@ -30,8 +36,13 @@ class CartContainer extends Component {
             <br/>
             <br/>
 
-            <Button raised color="primary" style={{float: 'right'}}>
-              Finish
+            <Button raised
+                    color="primary"
+                    style={{float: 'right'}}
+                    onClick={() => {
+                      this.submitOrder();
+                    }}>
+              Submit order
             </Button>
         </div>)}
       </div>
