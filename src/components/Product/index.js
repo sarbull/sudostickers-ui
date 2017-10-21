@@ -11,13 +11,16 @@ const styles = {
 };
 
 class Product extends Component {
-
   showCurrency() {
     return !(typeof this.props.product.price === 'string');
   }
 
   render() {
-    const { product, classes } = this.props;
+    const {
+      product,
+      classes,
+      addToCart
+    } = this.props;
 
     return (
       <div>
@@ -40,7 +43,11 @@ class Product extends Component {
               { product.price }
               { this.showCurrency() ? ' RON' : '' }
             </Button>
-            <Button dense color="primary">
+            <Button dense
+                    color="primary"
+                    onClick={ () => {
+                      addToCart(product);
+                    }}>
               Add to cart
             </Button>
           </CardActions>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import About from '../About';
 import Increment from '../Increment';
 import Home from '../Home';
-import Cart from '../Cart';
+import CartContainer from '../CartContainer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -30,7 +30,7 @@ class App extends Component {
                 <Grid item md={10}>
                   <Toolbar>
                     <Typography type="title" color="inherit">
-                      sudostickers
+                      Sudo Stickers
                     </Typography>
 
                     <Link to={"/"}>
@@ -55,7 +55,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route path="/about" component={About}/>
               <Route path="/increment" component={Increment}/>
-              <Route path="/cart" component={Cart}/>
+              <Route path="/cart" component={CartContainer}/>
             </Grid>
 
             <Grid item md={10} xs={12}>
