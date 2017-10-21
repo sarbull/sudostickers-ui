@@ -11,9 +11,9 @@ class ProductsContainer extends Component {
     const { products } = this.props;
 
     return products.map((product) => (
-      <Grid item md={6} xs={12}>
+      <Grid item xs={12} md={6} key={product.id}>
         <Paper>
-          <Product key={product.id} product={ product }/>
+          <Product product={ product }/>
         </Paper>
       </Grid>
     ));
@@ -23,9 +23,15 @@ class ProductsContainer extends Component {
     return (
       <div>
         <h2>Products</h2>
-        <Grid container md={12} xs={12} justify="center">
-          <Grid container md={8} xs={12} justify="center">
-            { this.renderProducts() }
+        <Grid container>
+          <Grid item xs={12}>
+            <Grid container justify="center">
+              <Grid item md={10} xs={12}>
+                <Grid container>
+                { this.renderProducts() }
+                </Grid>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </div>
