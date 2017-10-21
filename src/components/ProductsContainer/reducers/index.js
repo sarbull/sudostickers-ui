@@ -6,7 +6,7 @@ const initialState = {
       id: 1,
       name: 'Ludicon',
       defaultImage: '/images/ludicon.jpg',
-      description: 'Lorem ipsum dolor Angular',
+      description: 'The official logo of Ludicon App is here.',
       price: 'FREE',
       images: [
         {
@@ -18,7 +18,7 @@ const initialState = {
       id: 2,
       name: 'Proiectul Pagini Web',
       defaultImage: '/images/ppw.png',
-      description: 'Lorem ipsum dolor PPW',
+      description: 'Old school \'Proiectul Pagini Web\' logo.',
       price: 'FREE',
       images: [
         {
@@ -30,7 +30,7 @@ const initialState = {
       id: 3,
       name: 'Git',
       defaultImage: '/images/git.png',
-      description: 'Git stickers',
+      description: 'Git stickers for Git fans.',
       price: 5,
       images: [
         {
@@ -42,7 +42,7 @@ const initialState = {
       id: 4,
       name: 'WebStorm',
       defaultImage: '/images/ws.png',
-      description: 'Lorem ipsum dolor WebStorm',
+      description: 'Best Web IDE named \'WebStrorm\' logo.',
       price: 5,
       images: [
         {
@@ -54,7 +54,7 @@ const initialState = {
       id: 5,
       name: 'Angular',
       defaultImage: '/images/angular.png',
-      description: 'Lorem ipsum dolor Angular',
+      description: 'Classic Angular logo.',
       price: 5,
       images: [
         {
@@ -66,7 +66,7 @@ const initialState = {
       id: 6,
       name: 'JS',
       defaultImage: '/images/js.png',
-      description: 'Lorem ipsum dolor JS',
+      description: 'JavaScript default unaltered logo.',
       price: 5,
       images: [
         {
@@ -78,7 +78,7 @@ const initialState = {
       id: 7,
       name: 'HTML',
       defaultImage: '/images/html.png',
-      description: 'Lorem ipsum dolor HTML',
+      description: 'HTML5 logo untouched.',
       price: 5,
       images: [
         {
@@ -90,7 +90,7 @@ const initialState = {
       id: 8,
       name: 'NodeJS',
       defaultImage: '/images/node.png',
-      description: 'Lorem ipsum dolor NodeJS',
+      description: 'NodeJS official logo is also here.',
       price: 5,
       images: [
         {
@@ -102,7 +102,7 @@ const initialState = {
       id: 9,
       name: 'CSS',
       defaultImage: '/images/css.png',
-      description: 'Lorem ipsum dolor CSS',
+      description: 'CSS logo but in PNG format.',
       price: 5,
       images: [
         {
