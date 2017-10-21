@@ -78,7 +78,7 @@ class App extends Component {
 
             <Grid item md={10} xs={12}>
               <p align="right">
-                SUDOSTICKERS &copy; 2017
+                SUDOSTICKERS <small>(pre-alpha)</small> &copy; 2017
               </p>
             </Grid>
           </Grid>
