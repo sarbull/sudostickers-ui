@@ -15,7 +15,7 @@ const mapper = {
   },
   [REMOVE_FROM_CART]: (state, { product }) => {
     const items = state.items.filter((p) => {
-      return p.id === product.id;
+      return p.guid !== product.guid;
     });
 
     return {

@@ -6,12 +6,16 @@ import Cart from '../Cart';
 
 class CartContainer extends Component {
   render() {
-    const { items } = this.props;
+    const {
+      items,
+      removeFromCart
+    } = this.props;
 
     return (
       <div>
         <h1>Cart</h1>
-        <Cart items={items} />
+        <Cart items={items}
+              removeFromCart={ removeFromCart }/>
       </div>
     );
   }
