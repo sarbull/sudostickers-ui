@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import About from '../About';
 import Increment from '../Increment';
 import Home from '../Home';
+import Cart from '../Cart';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -32,26 +33,32 @@ class App extends Component {
                       sudostickers
                     </Typography>
 
-                    <Button color="contrast">
-                      <Link to="/">Home</Link>
-                    </Button>
-                    <Button color="contrast">
-                      <Link to="/about">About</Link>
-                    </Button>
+                    <Link to={"/"}>
+                      <Button>Home</Button>
+                    </Link>
+
+                    <Link to={"/about"}>
+                      <Button>About</Button>
+                    </Link>
+
+                    <Link to={"/cart"}>
+                      <Button>Shopping Cart</Button>
+                    </Link>
                   </Toolbar>
                 </Grid>
               </Grid>
             </AppBar>
           </Grid>
 
-          <Grid container>
-            <Route exact path="/" component={Home}/>
-            <Route path="/about" component={About}/>
-            <Route path="/increment" component={Increment}/>
-          </Grid>
-
           <Grid container justify="center">
-            <Grid item md={10}>
+            <Grid item md={10} xs={12}>
+              <Route exact path="/" component={Home}/>
+              <Route path="/about" component={About}/>
+              <Route path="/increment" component={Increment}/>
+              <Route path="/cart" component={Cart}/>
+            </Grid>
+
+            <Grid item md={10} xs={12}>
               <p align="right">
                 SUDOSTICKERS &copy; 2017
               </p>
