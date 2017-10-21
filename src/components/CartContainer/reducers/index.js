@@ -4,12 +4,29 @@ import {
   EMPTY_CART
 } from '../actions';
 
+
+function checkItems(items) {
+  if(items.length === 0) {
+    items.push({
+      id: 100,
+      guid: 'guid',
+      name: 'Transport',
+      price: 15.5
+    });
+  }
+
+  return items;
+}
+
+
 const mapper = {
   [ADD_TO_CART]: (state, { product }) => {
+    const checked = checkItems(state.items);
+
     return {
       ...state,
       items: [
-        ...state.items,
+        ...checked,
         product
       ]
     };
@@ -18,6 +35,10 @@ const mapper = {
     const items = state.items.filter((p) => {
       return p.guid !== product.guid;
     });
+
+    if(items.length === 1) {
+      items.pop();
+    }
 
     return {
       ...state,

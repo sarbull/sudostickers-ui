@@ -22,15 +22,20 @@ export default class Cart extends Component {
         <TableRow key={ i.guid }>
           <TableCell>#{i.id}</TableCell>
           <TableCell>{i.name}</TableCell>
-          <TableCell>{i.price}</TableCell>
+          <TableCell>
+            {i.price}
+            { (typeof i.price === 'number') && (
+              ' RON'
+            )}
+          </TableCell>
           <TableCell>1</TableCell>
           <TableCell>
-            <IconButton aria-label="Delete"
+            { (i.guid !== 'guid') && (<IconButton aria-label="Delete"
                         onClick={() => {
                           removeFromCart(i);
                         }}>
               <DeleteIcon />
-            </IconButton>
+            </IconButton>)}
           </TableCell>
         </TableRow>
       );

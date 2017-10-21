@@ -3,8 +3,14 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from './actions';
 import Cart from '../Cart';
+import CustomerContainer from "../CustomerContainer";
+import Button from 'material-ui/Button';
 
 class CartContainer extends Component {
+  submitOrder() {
+
+  }
+
   render() {
     const {
       items,
@@ -18,6 +24,16 @@ class CartContainer extends Component {
         <Cart items={items}
               removeFromCart={ removeFromCart }
               emptyCart={ emptyCart }/>
+        { (items.length > 0) && (<div>
+            <CustomerContainer />
+
+            <br/>
+            <br/>
+
+            <Button raised color="primary" style={{float: 'right'}}>
+              Finish
+            </Button>
+        </div>)}
       </div>
     );
   }
