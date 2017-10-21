@@ -27,7 +27,8 @@ class Product extends Component {
     const {
       product,
       classes,
-      addToCart
+      addToCart,
+      showSnackbar
     } = this.props;
 
     return (
@@ -56,6 +57,8 @@ class Product extends Component {
                     color="primary"
                     onClick={ () => {
                       addToCart(product);
+
+                      showSnackbar('up');
                     }}>
               Add to cart
             </Button>
