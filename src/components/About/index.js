@@ -14,7 +14,7 @@ export default class About extends Component {
         <h2>Contact</h2>
 
         <p>sudostickers [at] gmail.com</p>
-        <p><a href="http://www.facebook.com/sudostickers" target="_blank">http://www.facebook.com/sudostickers</a></p>
+        <p><a href="http://www.facebook.com/sudostickers" rel="noopener noreferrer" target="_blank">http://www.facebook.com/sudostickers</a></p>
       </div>
     );
   }

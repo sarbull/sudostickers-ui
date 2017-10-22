@@ -16,9 +16,16 @@ class CartContainer extends Component {
   submitOrder() {
     const { order, items } = this.props;
 
+    const products = items.map((i) => {
+      return  {
+        name: i.name,
+        price: i.price
+      }
+    });
+
     const data = {
-      order,
-      items
+      order: order.order,
+      products
     };
 
     this.props.saveOrder(data);
