@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import * as Actions from './actions';
 import Cart from '../Cart';
 import CustomerContainer from "../CustomerContainer";
-import Button from 'material-ui/Button';
 
 class CartContainer extends Component {
   constructor(props) {
@@ -50,14 +49,11 @@ class CartContainer extends Component {
             <br/>
             <br/>
 
-            <Button raised
-                    color="primary"
-                    style={{float: 'right'}}
-                    onClick={() => {
+            <button onClick={() => {
                       this.submitOrder();
                     }}>
               Submit order
-            </Button>
+            </button>
         </div>)}
       </div>
     );

@@ -3,11 +3,6 @@ import About from '../About';
 import Increment from '../Increment';
 import Home from '../Home';
 import CartContainer from '../CartContainer';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import Grid from 'material-ui/Grid';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from './actions';
@@ -36,52 +31,32 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Grid container>
-            <AppBar position="static" style={{ marginBottom: 40, backgroundColor: '#8BC34A' }}>
-              <Grid container justify="center">
-                <Grid item md={10} xs={12}>
-                  <Toolbar>
-                    <Typography type="title" color="inherit">
-                      Sudo Stickers
-                    </Typography>
+          <div>
+            <h1>Sudo Stickers</h1>
+            <Link to={'/'}>Home</Link>
+            <Link to={'/about'}>About</Link>
 
-                    <Link to={"/"}>
-                      <Button>Home</Button>
-                    </Link>
+            <Link to={'/cart'}>
+              <span>
+                Shopping Cart
 
-                    <Link to={"/about"}>
-                      <Button>About</Button>
-                    </Link>
+                { (this.cartQty() > 0) && (<span style={{color: '#E53935'}}>
+                  &nbsp;({ length })
+                </span>)}
+              </span>
+            </Link>
+          </div>
 
-                    <Link to={"/cart"}>
-                      <Button>
-                        <span>Shopping Cart
+          <div>
+            <Route exact path="/" component={Home}/>
+            <Route path="/about" component={About}/>
+            <Route path="/increment" component={Increment}/>
+            <Route path="/cart" component={CartContainer}/>
+          </div>
 
-                        { (this.cartQty() > 0) && (<span style={{color: '#E53935'}}>
-                          &nbsp;({ length })
-                        </span>) } </span>
-                      </Button>
-                    </Link>
-                  </Toolbar>
-                </Grid>
-              </Grid>
-            </AppBar>
-          </Grid>
-
-          <Grid container justify="center">
-            <Grid item md={10} xs={12}>
-              <Route exact path="/" component={Home}/>
-              <Route path="/about" component={About}/>
-              <Route path="/increment" component={Increment}/>
-              <Route path="/cart" component={CartContainer}/>
-            </Grid>
-
-            <Grid item md={10} xs={12}>
-              <p align="right">
-                SUDOSTICKERS <small>(pre-alpha)</small> &copy; 2017
-              </p>
-            </Grid>
-          </Grid>
+          <p align="right">
+            SUDOSTICKERS <small>(pre-alpha)</small> &copy; 2017
+          </p>
         </div>
       </Router>
     );

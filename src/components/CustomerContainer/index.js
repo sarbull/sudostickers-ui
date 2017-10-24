@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from './actions';
-import TextField from 'material-ui/TextField';
 
 const deliveries = [
   {
@@ -30,63 +29,37 @@ class CustomerContainer extends Component {
     return (
       <div>
         <form noValidate autoComplete="off">
-          <TextField
-            id="name"
-            label="First Name"
-            value={ order.firstName }
-            onChange={ (e) => {
-              this.handleChange('firstName', e.target.value);
-            } }
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            id="name"
-            label="Last Name"
-            value={ order.lastName }
-            onChange={ (e) => {
-              this.handleChange('lastName', e.target.value);
-            } }
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            id="name"
-            label="Phone Number"
-            value={ order.phone }
-            onChange={ (e) => {
-              this.handleChange('phone', e.target.value);
-            } }
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            id="multiline-flexible"
-            label="Address"
-            multiline
-            rowsMax="4"
-            value={ order.address }
-            onChange={ (e) => {
-              this.handleChange('address', e.target.value);
-            } }
-            fullWidth
-            margin="normal"
-          />
-          <TextField id="select-currency-native"
-                     select
-                     label="Delivery"
-                     value={ order.delivery }
-                     SelectProps={{
-                       native: true
-                     }}
-                     fullWidth
-                     margin="normal">
+          <input type="text"
+                 placeholder="First Name"
+                 value={ order.firstName }
+                 onChange={ (e) => {
+                   this.handleChange('firstName', e.target.value);
+                 }}/>
+          <input type="text"
+                 placeholder="Last Name"
+                 value={ order.lastName }
+                 onChange={ (e) => {
+                   this.handleChange('lastName', e.target.value);
+                 }}/>
+          <input type="text"
+                 placeholder="Phone Number"
+                 value={ order.phone }
+                 onChange={ (e) => {
+                   this.handleChange('phone', e.target.value);
+                 }}/>
+          <input type="text"
+                 placeholder="Address"
+                 value={ order.address }
+                 onChange={ (e) => {
+                   this.handleChange('phone', e.target.value);
+                 }}/>
+          <select value={ order.delivery }>
             {deliveries.map(option => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
             ))}
-          </TextField>
+          </select>
         </form>
       </div>
     );

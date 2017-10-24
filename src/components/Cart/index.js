@@ -1,14 +1,4 @@
 import React, { Component } from 'react';
-import Table, {
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  TableFooter
-} from 'material-ui/Table';
-import Paper from 'material-ui/Paper';
-import IconButton from 'material-ui/IconButton';
-import DeleteIcon from 'material-ui-icons/Delete';
 
 export default class Cart extends Component {
   renderRows() {
@@ -19,25 +9,22 @@ export default class Cart extends Component {
 
     return items.map(i => {
       return (
-        <TableRow key={ i.guid }>
-          <TableCell>#{i.id}</TableCell>
-          <TableCell>{i.name}</TableCell>
-          <TableCell>
-            {i.price}
+        <tr key={ i.guid }>
+          <td>#{ i.id }</td>
+          <td>{ i.name }</td>
+          <td>
+            { i.price }
             { (typeof i.price === 'number') && (
               ' RON'
             )}
-          </TableCell>
-          <TableCell>1</TableCell>
-          <TableCell>
-            { (i.guid !== 'guid') && (<IconButton aria-label="Delete"
-                        onClick={() => {
-                          removeFromCart(i);
-                        }}>
-              <DeleteIcon />
-            </IconButton>)}
-          </TableCell>
-        </TableRow>
+          </td>
+          <td>1</td>
+          <td>
+            { (i.guid !== 'guid') && (<button onClick={() => {
+              removeFromCart(i);
+            }}>Remove</button>)}
+          </td>
+        </tr>
       );
     });
   }
@@ -62,42 +49,38 @@ export default class Cart extends Component {
       emptyCart
     } = this.props;
 
-    return (<TableFooter>
-      <TableRow>
-        <TableCell>
+    return (<tfoot>
+      <tr>
+        <td>
           <strong>Total</strong>
-        </TableCell>
-        <TableCell></TableCell>
-        <TableCell>{ this.sumPrices() } RON</TableCell>
-        <TableCell>{ items.length }</TableCell>
-        <TableCell>
-          <IconButton aria-label="Delete"
-                      onClick={ emptyCart }>
-            <DeleteIcon />
-          </IconButton>
-        </TableCell>
-      </TableRow>
-    </TableFooter>);
+        </td>
+        <td></td>
+        <td>{ this.sumPrices() } RON</td>
+        <td>{ items.length }</td>
+        <td>
+          <button onClick={ emptyCart }>Remove</button>
+        </td>
+      </tr>
+    </tfoot>);
   }
 
   renderTable() {
-    return (<Paper>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Price</TableCell>
-            <TableCell>Qty</TableCell>
-            <TableCell>Options</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+    return (
+      <table>
+        <thead>
+          <th>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Qty</td>
+            <td>Options</td>
+          </th>
+        </thead>
+        <tbody>
           { this.renderRows() }
-        </TableBody>
+        </tbody>
         { this.renderTableFooter() }
-      </Table>
-    </Paper>);
+      </table>);
   }
 
   render() {

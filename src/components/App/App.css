@@ -2,11 +2,3 @@ body {
   font-family: 'Roboto', sans-serif;
   margin-bottom: 200px;
 }
-
-header a {
-  text-decoration: none;
-}
-
-header a button span {
-  color:white;
-}
