@@ -3,9 +3,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from './actions';
 
-import Button from 'material-ui/Button';
-import Grid from 'material-ui/Grid';
-
 class Increment extends Component {
   constructor(props) {
     super(props);
@@ -26,30 +23,15 @@ class Increment extends Component {
     const { value } = this.props;
 
     return (
-      <Grid item xs={12}>
-        <Grid container justify="center">
-          <Grid item>
-            <h2>{ value }</h2>
-          </Grid>
-        </Grid>
-        <Grid container justify="center">
-          <Grid item>
-            <Button onClick={ this.increment }
-                    raised
-                    color="primary">
-              Increment
-            </Button>
-          </Grid>
-
-          <Grid item>
-            <Button onClick={ this.decrement }
-                    raised
-                    color="accent">
-              Decrement
-            </Button>
-          </Grid>
-        </Grid>
-      </Grid>
+      <div>
+        <h2>{ value }</h2>
+        <button onClick={ this.increment }>
+          Increment
+        </button>
+        <button onClick={ this.decrement }>
+          Decrement
+        </button>
+      </div>
     );
   }
 }
