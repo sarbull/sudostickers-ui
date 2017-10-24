@@ -13,7 +13,6 @@ import {
   Link
 } from 'react-router-dom';
 
-import 'typeface-roboto';
 import './App.css';
 
 class App extends Component {
