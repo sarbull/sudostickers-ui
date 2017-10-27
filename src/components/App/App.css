@@ -1,4 +1,10 @@
 body {
+  zoom: 81%;
   font-family: Arial, sans-serif;
   margin-bottom: 200px;
+  margin-top:20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }

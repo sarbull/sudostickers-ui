@@ -12,15 +12,16 @@ class ProductsContainer extends Component {
       addToCart
     } = this.props;
 
-    return products.map((product) => (
-      <Product product={ product }
-               addToCart={ addToCart }/>
+    return products.map((product, index) => (
+      <Product key={product.id}
+               product={product}
+               addToCart={addToCart}/>
     ));
   }
 
   render() {
     return (
-      <div>
+      <div className="row">
           { this.renderProducts() }
       </div>
     );

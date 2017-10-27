@@ -20,7 +20,7 @@ export default class Cart extends Component {
           </td>
           <td>1</td>
           <td>
-            { (i.guid !== 'guid') && (<button onClick={() => {
+            { (i.guid !== 'guid') && (<button className="btn btn-xs btn-danger" onClick={() => {
               removeFromCart(i);
             }}>Remove</button>)}
           </td>
@@ -58,7 +58,7 @@ export default class Cart extends Component {
         <td>{ this.sumPrices() } RON</td>
         <td>{ items.length }</td>
         <td>
-          <button onClick={ emptyCart }>Remove</button>
+          <button className="btn btn-xs btn-danger" onClick={ emptyCart }>Remove</button>
         </td>
       </tr>
     </tfoot>);
@@ -66,15 +66,15 @@ export default class Cart extends Component {
 
   renderTable() {
     return (
-      <table>
+      <table className="table table-bordered table-striped">
         <thead>
-          <th>
+          <tr>
             <td>ID</td>
             <td>Name</td>
             <td>Price</td>
             <td>Qty</td>
             <td>Options</td>
-          </th>
+          </tr>
         </thead>
         <tbody>
           { this.renderRows() }
