@@ -1,6 +1,14 @@
 import * as guId from 'guid';
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
+function apiUrl(data) {
+  console.log('process.env.REACT_APP_API_URL=', data);
+}
+
+apiUrl(API_URL);
+
 export const ADD_TO_CART='ADD_TO_CART';
 export function addToCart(p) {
   const guid = guId.raw();
