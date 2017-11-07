@@ -3,14 +3,6 @@ import axios from 'axios';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 const env = runtimeEnv();
 
-const API_URL = env.REACT_APP_API_URL;
-
-function apiUrl(data) {
-  console.log('process.env.REACT_APP_API_URL=', data);
-}
-
-apiUrl(API_URL);
-
 export const ADD_TO_CART='ADD_TO_CART';
 export function addToCart(p) {
   const guid = guId.raw();
@@ -49,7 +41,7 @@ export function saveOrder(data) {
   return {
     type: SAVE_ORDER,
     promise: axios({
-      url: 'http://backend.api.sudostickers.com/api/orders',
+      url: `${env.REACT_APP_API_URL}/api/orders`,
       method: 'POST',
       data,
       transformResponse: (data) => {
