@@ -1,7 +1,9 @@
 import * as guId from 'guid';
 import axios from 'axios';
+import runtimeEnv from '@mars/heroku-js-runtime-env';
+const env = runtimeEnv();
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = env.REACT_APP_API_URL;
 
 function apiUrl(data) {
   console.log('process.env.REACT_APP_API_URL=', data);
