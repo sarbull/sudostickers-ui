@@ -1,6 +1,6 @@
 # sudostickers-ui
 
-# Start development
+## Start development
 ```bash
 $ npm install
 $ npm start
