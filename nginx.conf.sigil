@@ -15,7 +15,7 @@ server {
   return 301 https://$host:{{ $.NGINX_SSL_PORT }}$request_uri;
 {{ else }}
   location    / {
-    try_files $uri index.html;
+    try_files $uri /index.html;
 
     gzip on;
     gzip_min_length  1100;
@@ -73,7 +73,7 @@ server {
   {{ if and (eq $.SPDY_SUPPORTED "true") (ne $.HTTP2_SUPPORTED "true") }}add_header          Alternate-Protocol  {{ $.NGINX_SSL_PORT }}:npn-spdy/2;{{ end }}
 
   location    / {
-    try_files $uri index.html;
+    try_files $uri /index.html;
 
     gzip on;
     gzip_min_length  1100;
