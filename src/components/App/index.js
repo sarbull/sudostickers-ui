@@ -78,6 +78,12 @@ class App extends Component {
 
             <Grid item md={10} xs={12}>
               <p align="right">
+                powered by&nbsp;
+                <a href="http://www.pidgeon.ro">
+                  <img src="http://www.pidgeon.ro/images/pidgeon-logo.png" alt="Pidgeon Studio" height="50"/>
+                </a>
+              </p>
+              <p align="right">
                 SUDOSTICKERS <small>(pre-alpha)</small> &copy; 2017
               </p>
             </Grid>
